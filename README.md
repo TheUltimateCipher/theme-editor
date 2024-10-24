@@ -1,2 +1,2 @@
-# particle-editor
-Edit js particles and export them!
+# Theme-editor
+Edit your theme and export them!
