@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Ultimate Cipher</title>
+    <link id="theme-link" rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="hud-container" id="hud-container">
+      <div class="hud" id="hud">This is the HUD!</div>
+    </div>
+    <!-- <div class="image-container snow-theme">
+      <img src="Themes/images/snow/snow-bg.jpeg" alt="snowy background" />
+    </div> -->
+    <div id="particles-js"></div>
+    <div class="square">
+      <h1>Settings</h1>
+      <h2>Import Custom Settings</h2>
+      <input type="file" id="importSettings" accept=".zip" class="import" />
+      <button id="importBtn" class="glow-button">Import Settings</button>
+
+      <!-- Add this section for custom particle import -->
+      <h2>Import Custom Particles</h2>
+      <input type="file" id="importParticles" accept=".js" class="import" />
+      <button id="importParticlesBtn" class="glow-button">
+        Import Particles
+      </button>
+
+      <!-- <button id="colorButton">Choose Color</button> -->
+      <p>Background</p>
+      <input type="color" id="bgPicker" class="picker" />
+      <p>Square</p>
+      <input type="color" id="squarePicker" class="picker" />
+      <p>Main</p>
+      <input type="color" id="mainPicker" class="picker" />
+      <p>Secondary</p>
+      <input type="color" id="secondaryPicker" class="picker" />
+      <p>Font</p>
+      <input type="color" id="fontPicker" class="picker" />
+      <p>Scroll</p>
+      <input type="color" id="sliderPicker" class="picker" />
+
+      <!-- <div class="image-container"> -->
+      <!-- <label for="imageUpload" class="upload-btn" >Upload Image</label> -->
+      <h2>Upload Image</h2>
+      <input type="file" id="imageUpload" accept="image/*" class="import" />
+      <button
+        id="deleteImage"
+        class="delete-btn"
+        style="display: none"
+        class="glow-button"
+      >
+        Delete Image
+      </button>
+      <!-- </div> -->
+
+      <!-- Theme selection -->
+      <div class="theme-container">
+        <p>Test</p>
+        <select id="theme-selector">
+          <option value="light">Test</option>
+          <option value="dark">Test</option>
+          <option value="snow">Test</option>
+          <option value="hack" id="vip-theme" disabled>Test</option>
+        </select>
+      </div>
+
+      <!-- Particles toggle -->
+      <div class="item-container">
+        <p>Test</p>
+        <label class="switch" id="toggle-particles">
+          <input type="checkbox" id="particles" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="container">
+        <div class="entryarea">
+          <input
+            class="message"
+            id="message"
+            type="text"
+            autocomplete="off"
+            required
+          />
+          <div class="labelline">Test:</div>
+        </div>
+      </div>
+
+      <button class="glow-button">Test</button>
+
+      <button id="exportSettings" class="glow-button">Export Settings</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+
+    <!-- <script src="Themes/tooltip.js"></script> -->
+    <script src="script.js"></script>
+
+    <script>
+      function setSquareScale() {
+        const screenSize = window.innerWidth; // or innerHeight depending on your needs
+        const squareScale = screenSize / 1200; // You can adjust this divisor based on your design
+        document.documentElement.style.setProperty(
+          '--square-scale',
+          squareScale
+        );
+      }
+
+      setSquareScale();
+      window.addEventListener('resize', setSquareScale);
+
+      // Check if VIP-CODE exists in session storage
+      if (sessionStorage.getItem('VIP-CODE') === null) {
+        // If it doesn't exist, set it to "false"
+        sessionStorage.setItem('VIP-CODE', 'false');
+      }
+    </script>
+  </body>
+</html>

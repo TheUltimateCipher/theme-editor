@@ -1,0 +1,7 @@
+Create a favicon dumb asterisk
+
+Color stuff:
+Main blue COlor: 84a7d9
+Darker blue shade: 7593bf
+
+Text stuff for light theme: #424242

@@ -1,0 +1,475 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+/* ============================================================================== */
+/* Main Group */
+/* Containers, Body, Buttons, Text, Input Boxes, and Toggle Switches */
+/* ============================================================================== */
+body {
+  overflow-x: hidden;
+  display: flex;
+  font-family: 'Fira Code', monospace;
+  padding: 0rem 30rem;
+  height: 100vh;
+  margin: 0;
+  background-color: #161616;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  margin: 0.5rem 0.5rem;
+}
+
+p {
+  text-align: center;
+  color: white;
+  margin: 0.5rem 0.5rem;
+}
+
+.glow-button {
+  font-family: 'Fira Code', monospace;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 1rem;
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  display: inline-block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin: 0.5rem 0;
+}
+
+.glow-button:hover {
+  background-color: #84a7d9;
+  color: white;
+  box-shadow: 0 0 1.25rem #84a7d9;
+  border: 2px solid #7593bf;
+}
+
+.secret-button{
+  font-family: 'Fira Code', monospace;
+  background-color: transparent;
+  border: 2px solid #161616;
+  border-radius: 1rem;
+  color: #161616;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  display: inline-block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin: 0.5rem 0;
+  position: fixed;   /* Position the button relative to the viewport */
+    bottom: 5px;      /* Distance from the bottom of the screen */
+    right: 5px;  
+    opacity: 0;
+}
+
+.secret-button:hover {
+  background-color: #84a7d9;
+  color: #2c2c2c;
+  box-shadow: 0 0 1.25rem #84a7d9;
+  border: 2px solid #7593bf;
+  opacity: 1;
+}
+
+.selected-mode {
+  background-color: #84a7d9;
+  color: white;
+  box-shadow: 0 0 1.25rem #84a7d9;
+  border: 2px solid #7593bf;
+}
+
+input {
+  font-family: 'Fira Code', monospace;
+  outline: none;
+  font-size: 1.5rem;
+  padding: 1.5rem 0.625rem;
+  border-radius: 1rem;
+  border: 0.25rem solid white;
+  background: transparent;
+  transition: 0.1s ease;
+  width: 70%;
+  z-index: 10;
+}
+
+.message:focus,
+.message:valid {
+  z-index: 1;
+  color: #84a7d9;
+  border: 0.375rem solid #84a7d9;
+}
+
+.message:focus + .labelline,
+.message:valid + .labelline {
+  color: #84a7d9;
+  transform: translate(0.625rem, -2.8125rem) scale(0.88);
+}
+
+.outputfield:focus,
+.outputfield:valid {
+  z-index: 1;
+  color: #84a7d9;
+  border: 0.375rem solid #84a7d9;
+}
+
+.outputfield:focus + .outputdiv,
+.outputfield:valid + .outputdiv {
+  color: #84a7d9;
+  transform: translate(0.625rem, -2.8125rem) scale(0.88);
+}
+
+.outputfield:focus + .outputdiv + .clipboard,
+.outputfield:valid + .outputdiv + .clipboard {
+  opacity: 1;
+  transform: translate(0, -2.8125rem) scale(0.88);
+  color: #84a7d9;
+  z-index: 10;
+}
+
+.labelline {
+  z-index: 1;
+  font-family: 'Fira Code', monospace;
+  position: absolute;
+  left: 6.25rem;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #2c2c2c;
+  padding: 0 0.625rem;
+  transition: 0.2s ease;
+}
+
+.outputdiv {
+  z-index: 2;
+  font-family: 'Fira Code', monospace;
+  position: absolute;
+  left: 6.25rem;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #2c2c2c;
+  padding: 0 0.625rem;
+  transition: 0.2s ease;
+}
+
+.clipboard {
+  z-index: 2;
+  opacity: 0;
+  font-family: 'Fira Code', monospace;
+  position: absolute;
+  left: 28.75rem;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #2c2c2c;
+  padding: 0 0.625rem;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.entryarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+/* The switch container */
+.switch {
+  margin: 10px 0;
+  transform: scale(0.5);
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  z-index: 5;
+}
+
+/* Hide default checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+/* The circle inside the slider */
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* When the checkbox is checked */
+input:checked + .slider {
+  background-color: #84a7d9;
+  box-shadow: 0 0 1.25rem #84a7d9;
+}
+
+/* Move the circle to the right when checked */
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Optional: styles for rounded slider */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.entire-container {
+  position: relative;
+  display: inline-block;
+}
+
+.square {
+  width: 300px;
+  height: 450px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #2c2c2c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.7);
+  transform: scale(var(--square-scale, 1));
+  padding-top: 0px;
+  z-index: 5;
+}
+
+.square::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 800px) {
+  .square {
+    transform: scale(1.25);
+  }
+}
+
+@media (max-width: 500px) {
+  .square {
+    transform: scale(1);
+  }
+}
+
+.container {
+  width: 42.5rem;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transform: scale(0.5);
+}
+/* ============================================================================== */
+/* Sliders and Scroll Stuff */
+/* ============================================================================== */
+::-webkit-scrollbar {
+  width: 0.75rem;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.7);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1d1d1d;
+  border-radius: 0.625rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 0.625rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #84a7d9;
+}
+/* ============================================================================== */
+/* Everything Else */
+/* ============================================================================== */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 1;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  display: flex;
+}
+
+.item-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 0;
+}
+
+.theme-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0;
+}
+
+#theme-selector {
+  transform: scale(0.5);
+  margin: 0;
+  font-family: 'Fira Code', monospace;
+  width: 120px;
+  padding: 10px;
+  font-size: 16px;
+  border: 4px solid white;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  position: relative;
+}
+
+#theme-selector::after {
+  content: '▼';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: white;
+  pointer-events: none;
+}
+
+#theme-selector:focus {
+  border-color: #84a7d9;
+  outline: none;
+  background-color: transparent;
+}
+
+#theme-selector option {
+  color: white;
+  background-color: #2c2c2c;
+}
+
+.snow-theme {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.snow-theme img {
+  display: none;
+}
+
+.hud-container {
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* scale(var(--square-scale, 1)) */
+  z-index: 1000;
+  padding: 20px;
+  width: auto;
+}
+
+.hud {
+  background-color: #84a7d9;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 1.25rem #84a7d9;
+  padding: 15px 30px;
+  font-size: 18px;
+}
+
+@keyframes slideDown {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 20px;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    top: 20px;
+  }
+  to {
+    top: -100px;
+  }
+}
+
+.slideUp {
+  animation: slideUp 0.5s forwards;
+}
+
+.slideDown {
+  animation: slideDown 0.5s forwards;
+}
+
+/* Loading overlay */
+#loading-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(5px); /* Blurs the background */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+#loading-bar {
+  width: 80%;
+  height: 10px;
+  background-color: #ddd;
+  margin-bottom: 10px;
+}
+
+#progress {
+  width: 0;
+  height: 100%;
+  background-color: #84a7d9;
+  box-shadow: 0 0 1.25rem #84a7d9;
+  transition: width 0.2s;
+}
