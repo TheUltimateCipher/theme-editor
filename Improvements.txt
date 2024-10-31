@@ -1,7 +1,3 @@
-Create a favicon dumb asterisk
-
-Color stuff:
-Main blue COlor: 84a7d9
-Darker blue shade: 7593bf
-
-Text stuff for light theme: #424242
+So still need favicon
+The color pickers have a default color of black when it shouldn't. The color picker should have a default value equal to the dark theme.
+REMEMBER TO EXPORT TO GITHUB FORGETFUL BEAN
